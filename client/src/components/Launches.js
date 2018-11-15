@@ -19,7 +19,7 @@ export default class Launches extends Component {
   render() {
     return (
       <div>
-        <h3 style={{textAlign:'center'}} className="my-3">Launches</h3>
+        <h5 className="my-3">Launches</h5>
         <Query query={launches_query}>
           {
               ({ loading, error, data }) => {
