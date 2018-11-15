@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
-import './App.css';
-import logo from './space-x-logo.jpg';
-import Launches from './components/Launches';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import './App.css'
+import logo from './space-x-logo.jpg'
+import Launches from './components/Launches'
+import Launch from './components/Launch'
 
 
 const client = new ApolloClient({
@@ -17,6 +19,7 @@ class App extends Component {
 
     return (
       <ApolloProvider client={ client }>
+      <Router>
         <div className="container">
           <div className="teste" style={{ height:64, overflow:'hidden' }}>
             <img style={{
@@ -28,8 +31,10 @@ class App extends Component {
               src={logo} 
               alt='imagem de teste'/>
           </div>
-          <Launches/>
+            <Route path="/" exact component={Launches}/>
+            <Route path="/launch/:flight_number" exact component={Launch}/>
         </div>
+      </Router>
       </ApolloProvider>
     );
   }
