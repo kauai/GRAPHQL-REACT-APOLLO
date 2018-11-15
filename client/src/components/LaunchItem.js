@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import Moment from 'react-moment'
 
 
 const LaunchItem = ({ launches }) => 
@@ -19,7 +20,7 @@ const LaunchItem = ({ launches }) =>
                             'text-success':launch_success,
                             'text-danger':!launch_success
                         })}>{ mission_name }</span></h4>
-                           <p>Date: { launch_date_local }</p>
+                           <p>Date: <Moment format="DD-MM-YYYY HH:mm">{ launch_date_local }</Moment></p>
                        </div>
                        <div className="col-md-3">
                            <button className="btn btn-secondary">Detalhes</button>
